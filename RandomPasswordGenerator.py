@@ -7,7 +7,7 @@ from tkinter.ttk import *
 # Imports
 
 window = ThemedTk(theme='breeze')
-window.geometry("450x200")
+window.geometry("520x220")
 window.title("Random Password Generator")
 # Creating the window
 
