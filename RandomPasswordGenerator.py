@@ -1,10 +1,12 @@
 import random
 import pyperclip
 from tkinter import *
+from tkinter import ttk
+from ttkthemes import ThemedTk
 from tkinter.ttk import *
 # Imports
 
-window = Tk()
+window = ThemedTk(theme='breeze')
 window.geometry("450x200")
 window.title("Random Password Generator")
 # Creating the window
@@ -111,44 +113,44 @@ Label(window, text="Encrypted\nPassword").grid(row=6, column=0)
 Label(window, text="Select Strength").grid(row=2, column=3)
 # Creating labels
 
-password = Entry(window)
+password = ttk.Entry(window)
 password.insert(END, generated_password)
 password.grid(row=1, column=1)
 # Creating password entry
 
-encryption = Entry(window)
+encryption = ttk.Entry(window)
 encryption.insert(END, encrypted_password)
 encryption.grid(row=6, column=1)
 # Creating encrypted password entry
 
 variable.trace("w", Characters)
-number_of_characters = Combobox(window, textvar=variable)
+number_of_characters = ttk.Combobox(window, textvar=variable)
 number_of_characters["values"] = ("Select Characters", "6", "8", "10", "12")
 number_of_characters.current(0)
 number_of_characters.grid(row=2, column=1)
 # Creating a menu from which to choose the number of characters
 
-radiobutton = Radiobutton(window, text="Weak", value=1, var=strength)
+radiobutton = ttk.Radiobutton(window, text="Weak", value=1, var=strength)
 radiobutton.grid(row=3, column=3)
-radiobutton1 = Radiobutton(window, text="Medium", value=2, var=strength)
+radiobutton1 = ttk.Radiobutton(window, text="Medium", value=2, var=strength)
 radiobutton1.grid(row=4, column=3)
-radiobutton2 = Radiobutton(window, text="Strong", value=3, var=strength)
+radiobutton2 = ttk.Radiobutton(window, text="Strong", value=3, var=strength)
 radiobutton2.grid(row=5, column=3)
 # Creating radiobuttons for the user to choose the password's strength
 
-copy = Button(window, text="Copy", command=lambda: Copy(0))
+copy = ttk.Button(window, text="Copy", command=lambda: Copy(0))
 copy.grid(row=1, column=2)
-copy1 = Button(window, text="Copy", command=lambda: Copy(1))
+copy1 = ttk.Button(window, text="Copy", command=lambda: Copy(1))
 copy1.grid(row=6, column=2)
 # Creating the "Copy" buttons
 
-generate = Button(window, text="Generate", command=Generate)
+generate = ttk.Button(window, text="Generate", command=Generate)
 generate.grid(row=1, column=3)
-encrypt = Button(window, text="Encrypt", command=Encrypt)
+encrypt = ttk.Button(window, text="Encrypt", command=Encrypt)
 encrypt.grid(row=1, column=4)
 # Creating the "Generate" and "Encrypt" buttons
 
-cb = Button(window, text="Exit", command=lambda: window.quit())
+cb = ttk.Button(window, text="Exit", command=lambda: window.quit())
 cb.grid(row=6, column=3)
 # Creating the "Exit" button
 
